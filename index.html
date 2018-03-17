@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+      	<link rel="stylesheet" href="./calc.css" />
+		<title></title>
+	</head>
+	<body>
+		<h1>Calculatrice</h1>
+		<div id="calculatrice">
+		<input />
+			<div class="ligne">
+				<button value="1" class="number">1</button>
+				<button value="2" class="number">2</button>
+				<button value="3" class="number">3</button>
+				<button value="+" class="number op">+</button>
+			</div>
+			<div class="ligne">
+				<button value="4" class="number">4</button>
+				<button value="5" class="number">5</button>
+				<button value="6" class="number">6</button>		
+				<button value="-" class="number op">-</button>
+			</div>
+			<div class="ligne">
+				<button value="7" class="number">7</button>
+				<button value="8" class="number">8</button>		
+				<button value="9" class="number">9</button>
+				<button value="*" class="number op">x</button>
+			</div>
+			<div class="ligne">
+				<button id="calculer">=</button>
+				<button value="" id="reset">C</button>
+				<button value="0" class="number">0</button>
+				<button value="/" class="number op">/</button>
+			</div>
+		</div>
+		<script type="text/javascript">
+				var result   = document.querySelector("input");
+				var calculer = document.getElementById("calculer");
+				var numero   = document.querySelectorAll('.number');
+				var reset    = document.getElementById("reset");
+	
+				for (var i = 0; i < numero.length; i++) {
+					numero[i].onclick= function(){
+					result.value += this.value;
+					}
+				}
+				calculer.onclick = function(){
+					result.value = eval(result.value)
+				}
+				reset.onclick = function () {
+					result.value = null;
+				}
+		</script>
+	</body>
+</html>
